@@ -7,12 +7,12 @@ const route = Router()
 route.post('/', async (req ,res) => {
   try {
 
-    await createUser(
+    const user = await createUser(
       req.body.user.username,
       req.body.user.email,
       req.body.user.password
     )
-    res.status(201).send()
+    res.status(201).send({user})
 
   } catch (e) {
     res.status(500).json({

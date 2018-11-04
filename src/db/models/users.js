@@ -17,9 +17,11 @@ module.exports = db.define('users', {
     allowNull: false
   },
   bio: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: ''
   },
   image: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: ''
   },
 })

@@ -20,10 +20,9 @@ async function createUser(username, email, password) {
     throw new Error('E102: username cannot be empty')
   }
 
-  await Users.create({
+  return await Users.create({
     username, email, password
   })
-  return
 }
 
 /**
