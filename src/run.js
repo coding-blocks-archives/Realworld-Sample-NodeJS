@@ -1,6 +1,18 @@
-const { app } = require('./server')
+const {
+  app
+} = require('./server')
+const {
+  db
+} = require('./db')
 const config = require('../config')
 
-app.listen(config.PORT, () => {
-  console.log('Started on http://localhost:' + config.PORT)
-})
+
+db.sync()
+  .then(() => {
+
+    app.listen(config.PORT, () => {
+      console.log('Started on http://localhost:' + config.PORT)
+    })
+
+  })
+  .catch(console.error)
